@@ -70,14 +70,17 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Serverless Framework
-        run: npm install -g serverless
+      # - name: Install Serverless Framework
+      #   run: npm install -g serverless
 
-      - name: Serverless Login
-        run: serverless login --interactive=false --token ${{ secrets.SERVERLESS_ACCESS_TOKEN }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # - name: Serverless Login
+      #   run: serverless login --interactive=false --token ${{ secrets.SERVERLESS_ACCESS_TOKEN }}
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Install Serverless Framework v3
+        run: npm install -g serverless@3
 
       - name: Serverless Deploy
         run: npx serverless deploy
